@@ -73,3 +73,19 @@ Now, write a bash script at `orchestrator.sh` that contains an array of strings,
 same prompt as above, except scripts-orchestrated
 
 Okay, first try it just ignored the instructions in the slash command and just started making the 100 scripts lol. Will update the slash command text to be more explicit.
+
+*sigh* it didn't work again. But then I realized I need to restart cc to make it load the new slash command. When a slahs command isn't found, instead of throwing an error it just... treats it like regular instruction text. 
+
+Okay take three:
+
+/orchestrator is running… Create a scripts-orchestrated/ directory. Inside it, create 100 small 
+ruby files. Each ruby file should have a 
+  single function defined in it. Each function should be a fairly straightforward but arbitrary 
+  piece of coding logic. They MUST NOT require any external libraries other than what is typical for
+   a ruby installation (e.g. datetime or json is fine). These should just be 100 different 
+  functions, each around 10-50 lines long. They can be typical DS&A functions like binary search, or
+   applied functions like escaping a URL.
+  ⎿  Allowed 2 tools for this command
+
+⏺ I'll create an orchestrator script that breaks down the task of creating 100 Ruby files into
+  smaller, manageable sub-tasks.
