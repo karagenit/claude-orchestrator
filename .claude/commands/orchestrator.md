@@ -17,6 +17,6 @@ DO NOT execute that task right now! That is not what we want to do yet. Instead,
 
 INSTEAD, DO THIS:
 
-Now, write a bash script at `orchestrator.sh` that contains an array of strings, each string representing one sub-task. The script should call `claude -p <subtask>` in a loop so each subtask is properly executed. Finally, execute the orchestrator script.
+Now, write a bash script at `orchestrator.sh` that contains an array of strings, each string representing one sub-task. The script should call `claude -p <subtask> --permission-mode acceptEdits` in a loop so each subtask is properly executed. Finally, execute the orchestrator script.
 
 !chmod +x orchestrator.sh && ./orchestrator.sh
