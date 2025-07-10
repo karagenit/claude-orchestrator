@@ -28,25 +28,30 @@ subtasks=(
 )
 
 echo "Starting orchestrator with ${#subtasks[@]} sub-tasks..."
-echo "Logs will be saved to orchestrator_logs/"
 
-# Execute each sub-task in parallel using nohup and disown
+# Execute each sub-task sequentially
 for i in "${!subtasks[@]}"; do
     task_num=$((i + 1))
-    log_file="orchestrator_logs/task_${task_num}.log"
+    echo ""
+    echo "=========================================="
+    echo "Executing sub-task $task_num of ${#subtasks[@]}"
+    echo "=========================================="
+    echo "Task: ${subtasks[$i]}"
+    echo ""
     
-    echo "Starting task ${task_num}..."
+    # Execute the sub-task with claude
+    claude -p "${subtasks[$i]}" --permission-mode acceptEdits
     
-    # Run claude command in background with nohup and disown
-    nohup claude -p "${subtasks[$i]}" --permission-mode acceptEdits > "$log_file" 2>&1 &
-    
-    # Disown the process to fully detach it
-    disown
-    
-    # Small delay to prevent overwhelming the system
-    sleep 1
+    # Check if the command was successful
+    if [ $? -eq 0 ]; then
+        echo "Sub-task $task_num completed successfully"
+    else
+        echo "Sub-task $task_num failed"
+        exit 1
+    fi
 done
 
-echo "All tasks have been started in the background."
-echo "Monitor progress with: tail -f orchestrator_logs/task_*.log"
-echo "Check completion with: ls -la scripts-orchestrated/ | wc -l"
+echo ""
+echo "=========================================="
+echo "All sub-tasks completed successfully!"
+echo "=========================================="
