@@ -17,6 +17,6 @@ DO NOT execute that task right now! That is not what we want to do yet. Instead,
 
 INSTEAD, DO THIS:
 
-Now, write a bash script at `orchestrator.sh` that contains an array of strings, each string representing one sub-task. The script should call `claude -p <subtask> --permission-mode acceptEdits` in a loop so each subtask is properly executed. IMPORTANT: To prevent timeout issues, each claude command must be run in the background using `nohup` and `disown` to fully detach the processes from the parent shell. Log output to individual files and use proper process management. Finally, execute the orchestrator script.
+Now, write a bash script at `orchestrator.sh` that contains an array of strings, each string representing one sub-task. The script should call `claude -p <subtask> --permission-mode acceptEdits` in a loop so each subtask is properly executed. Finally, execute the orchestrator script in the background using nohup and disown.
 
-!chmod +x orchestrator.sh && ./orchestrator.sh
+!chmod +x orchestrator.sh && nohup ./orchestrator.sh > orchestrator.log 2>&1 & disown
