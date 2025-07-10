@@ -1,0 +1,14 @@
+Created 10 Ruby files with the requested functions:
+
+- `script_031.rb` - heap_sort function with heapify helper
+- `script_032.rb` - radix_sort function with counting sort by digit
+- `script_033.rb` - caesar_cipher function with frequency analysis
+- `script_034.rb` - rot13 function with number support
+- `script_035.rb` - json_parse_safe function with custom JSON parser
+- `script_036.rb` - json_stringify function with pretty printing
+- `script_037.rb` - date_format function with multiple format support
+- `script_038.rb` - time_diff function with various output formats
+- `script_039.rb` - random_string function with customizable charsets
+- `script_040.rb` - shuffle_array function with multiple algorithms
+
+All files contain Ruby functions with 10-50 lines of code and no external dependencies.

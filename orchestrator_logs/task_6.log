@@ -1,0 +1,14 @@
+Created 10 Ruby files (script_051.rb to script_060.rb) with the requested algorithms:
+
+- **script_051.rb**: `tree_traversal` - Binary tree traversal (inorder, preorder, postorder)
+- **script_052.rb**: `graph_dfs` - Depth-first search with recursive and iterative versions
+- **script_053.rb**: `graph_bfs` - Breadth-first search with shortest path finding
+- **script_054.rb**: `dijkstra_simple` - Dijkstra's shortest path algorithm
+- **script_055.rb**: `knapsack_01` - 0/1 knapsack problem with dynamic programming
+- **script_056.rb**: `lcs_length` - Longest Common Subsequence calculation
+- **script_057.rb**: `edit_distance` - Levenshtein distance with operation tracking
+- **script_058.rb**: `coin_change` - Coin change problem with multiple variants
+- **script_059.rb**: `tower_hanoi` - Tower of Hanoi solution (recursive and iterative)
+- **script_060.rb**: `permutations` - Generate permutations with various approaches
+
+Each file contains 20-50 lines of Ruby code with no external dependencies.

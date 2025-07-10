@@ -1,0 +1,14 @@
+Created 10 Ruby files with the requested functions:
+
+- `script_041.rb` - `validate_email` function
+- `script_042.rb` - `validate_phone` function  
+- `script_043.rb` - `credit_card_mask` function
+- `script_044.rb` - `slug_generator` function
+- `script_045.rb` - `html_escape` function
+- `script_046.rb` - `html_unescape` function
+- `script_047.rb` - `sql_escape` function
+- `script_048.rb` - `csv_parse` function
+- `script_049.rb` - `xml_escape` function
+- `script_050.rb` - `regex_match` function
+
+Each file contains 10-50 lines of Ruby code with no external dependencies and includes test cases that run when executed directly.

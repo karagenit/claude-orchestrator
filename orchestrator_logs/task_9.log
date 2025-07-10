@@ -1,0 +1,14 @@
+All 10 Ruby files have been successfully created in the `scripts-orchestrated/` directory with the requested algorithms:
+
+- **script_081.rb** - LRU Cache implementation
+- **script_082.rb** - Priority Queue with min-heap
+- **script_083.rb** - Union-Find data structure
+- **script_084.rb** - Topological sort algorithm
+- **script_085.rb** - Strongly connected components (Kosaraju's algorithm)
+- **script_086.rb** - Minimum spanning tree (Kruskal's algorithm)
+- **script_087.rb** - Maximum flow (Ford-Fulkerson method)
+- **script_088.rb** - Shortest path (Dijkstra's algorithm)
+- **script_089.rb** - Traveling salesman problem (brute force)
+- **script_090.rb** - N-Queens problem (backtracking)
+
+Each file contains 10-50 lines of Ruby code with no external dependencies, implementing the specified algorithms with demonstration functions.

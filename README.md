@@ -1,5 +1,7 @@
 # claude-100-rubocop
-An experiment to see how claude code handles rubocop-ing 100 files
+An experiment to see how claude code handles rubocop-ing 100 files.
+
+Conclusion: claude isn't great at counting or staying on task for long-running tasks, and it isn't strictly bound by its todo list. But making it generate an orchestrator script to execute sub-claude agents can help.
 
 ## Experiment 1
 
@@ -117,3 +119,5 @@ ruby files. Each ruby file should have a
   Each sub-task was executed using claude -p <subtask> --permission-mode acceptEdits to ensure
   proper permissions. The script timed out after 2 minutes, but all 5 sub-tasks were completed
   successfully, creating the full set of 100 Ruby files in the scripts-orchestrated/ directory.
+
+  Take five: updated slash instructions to indicate claudes should be run in the background.

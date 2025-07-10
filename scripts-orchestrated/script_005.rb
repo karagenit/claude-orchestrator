@@ -1,118 +1,85 @@
-class Graph
-  def initialize
-    @adjacency_list = {}
+def palindrome_check(str)
+  return false if str.nil?
+  
+  cleaned = str.downcase.gsub(/[^a-z0-9]/, '')
+  
+  cleaned == cleaned.reverse
+end
+
+def palindrome_check_two_pointers(str)
+  return false if str.nil?
+  
+  cleaned = str.downcase.gsub(/[^a-z0-9]/, '')
+  left = 0
+  right = cleaned.length - 1
+  
+  while left < right
+    return false if cleaned[left] != cleaned[right]
+    left += 1
+    right -= 1
   end
   
-  def add_vertex(vertex)
-    @adjacency_list[vertex] ||= []
+  true
+end
+
+def palindrome_check_recursive(str)
+  return false if str.nil?
+  
+  cleaned = str.downcase.gsub(/[^a-z0-9]/, '')
+  
+  check_palindrome_recursive(cleaned, 0, cleaned.length - 1)
+end
+
+def check_palindrome_recursive(str, left, right)
+  return true if left >= right
+  
+  return false if str[left] != str[right]
+  
+  check_palindrome_recursive(str, left + 1, right - 1)
+end
+
+def longest_palindrome_substring(str)
+  return "" if str.nil? || str.empty?
+  
+  longest = ""
+  
+  str.length.times do |i|
+    odd_palindrome = expand_around_center(str, i, i)
+    even_palindrome = expand_around_center(str, i, i + 1)
+    
+    current_longest = odd_palindrome.length > even_palindrome.length ? odd_palindrome : even_palindrome
+    longest = current_longest if current_longest.length > longest.length
   end
   
-  def add_edge(vertex1, vertex2)
-    add_vertex(vertex1)
-    add_vertex(vertex2)
-    @adjacency_list[vertex1] << vertex2
-    @adjacency_list[vertex2] << vertex1
+  longest
+end
+
+def expand_around_center(str, left, right)
+  while left >= 0 && right < str.length && str[left] == str[right]
+    left -= 1
+    right += 1
   end
   
-  def bfs(start_vertex)
-    return [] unless @adjacency_list[start_vertex]
-    
-    queue = [start_vertex]
-    visited = Set.new([start_vertex])
-    result = []
-    
-    while !queue.empty?
-      vertex = queue.shift
-      result << vertex
-      
-      @adjacency_list[vertex].each do |neighbor|
-        unless visited.include?(neighbor)
-          visited.add(neighbor)
-          queue << neighbor
-        end
-      end
-    end
-    
-    result
-  end
-  
-  def shortest_path(start_vertex, end_vertex)
-    return [] unless @adjacency_list[start_vertex] && @adjacency_list[end_vertex]
-    
-    queue = [[start_vertex, [start_vertex]]]
-    visited = Set.new([start_vertex])
-    
-    while !queue.empty?
-      vertex, path = queue.shift
-      
-      return path if vertex == end_vertex
-      
-      @adjacency_list[vertex].each do |neighbor|
-        unless visited.include?(neighbor)
-          visited.add(neighbor)
-          queue << [neighbor, path + [neighbor]]
-        end
-      end
-    end
-    
-    []
-  end
-  
-  def find_all_paths(start_vertex, end_vertex, path = [])
-    path = path + [start_vertex]
-    
-    return [path] if start_vertex == end_vertex
-    
-    return [] unless @adjacency_list[start_vertex]
-    
-    paths = []
-    @adjacency_list[start_vertex].each do |neighbor|
-      unless path.include?(neighbor)
-        new_paths = find_all_paths(neighbor, end_vertex, path)
-        paths.concat(new_paths)
-      end
-    end
-    
-    paths
-  end
-  
-  def level_order_traversal(start_vertex)
-    return {} unless @adjacency_list[start_vertex]
-    
-    queue = [[start_vertex, 0]]
-    visited = Set.new([start_vertex])
-    levels = {}
-    
-    while !queue.empty?
-      vertex, level = queue.shift
-      levels[level] ||= []
-      levels[level] << vertex
-      
-      @adjacency_list[vertex].each do |neighbor|
-        unless visited.include?(neighbor)
-          visited.add(neighbor)
-          queue << [neighbor, level + 1]
-        end
-      end
-    end
-    
-    levels
-  end
+  str[left + 1..right - 1]
 end
 
 if __FILE__ == $0
-  require 'set'
+  test_strings = [
+    "racecar",
+    "A man a plan a canal Panama",
+    "race a car",
+    "hello",
+    "Madam",
+    "Was it a car or a cat I saw?"
+  ]
   
-  graph = Graph.new
-  graph.add_edge('A', 'B')
-  graph.add_edge('A', 'C')
-  graph.add_edge('B', 'D')
-  graph.add_edge('C', 'E')
-  graph.add_edge('D', 'E')
-  graph.add_edge('D', 'F')
+  puts "Palindrome checking:"
+  test_strings.each do |str|
+    puts "'#{str}' -> #{palindrome_check(str)}"
+  end
   
-  puts "BFS traversal from A: #{graph.bfs('A')}"
-  puts "Shortest path from A to E: #{graph.shortest_path('A', 'E')}"
-  puts "All paths from A to E: #{graph.find_all_paths('A', 'E')}"
-  puts "Level order traversal from A: #{graph.level_order_traversal('A')}"
+  puts "\nLongest palindrome substrings:"
+  ["babad", "cbbd", "racecar"].each do |str|
+    puts "'#{str}' -> '#{longest_palindrome_substring(str)}'"
+  end
 end

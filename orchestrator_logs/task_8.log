@@ -1,0 +1,14 @@
+Created all 10 Ruby files with the specified data structure functions:
+
+- **script_071.rb**: `binary_tree_height` - calculates height of binary tree
+- **script_072.rb**: `binary_tree_inorder` - inorder traversal of binary tree  
+- **script_073.rb**: `binary_tree_preorder` - preorder traversal of binary tree
+- **script_074.rb**: `binary_tree_postorder` - postorder traversal of binary tree
+- **script_075.rb**: `linked_list_reverse` - reverses a linked list
+- **script_076.rb**: `queue_implementation` - implements queue data structure
+- **script_077.rb**: `stack_implementation` - implements stack data structure
+- **script_078.rb**: `hash_table_simple` - implements basic hash table
+- **script_079.rb**: `bloom_filter` - implements bloom filter with hash functions
+- **script_080.rb**: `trie_insert` - implements trie data structure with insert/search
+
+Each file contains 10-50 lines of Ruby code with no external dependencies and includes test examples that run when executed directly.

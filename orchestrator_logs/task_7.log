@@ -1,0 +1,12 @@
+Created 10 Ruby files (script_061.rb to script_070.rb) in the scripts-orchestrated/ directory with the requested functions. Each file contains 10-50 lines of Ruby code with no external dependencies:
+
+- **script_061.rb**: `combinations` function with combinatorics calculations
+- **script_062.rb**: `subset_sum` function with dynamic programming approach
+- **script_063.rb**: `matrix_multiply` function with standard and Strassen algorithms
+- **script_064.rb**: `matrix_transpose` function with various matrix operations
+- **script_065.rb**: `determinant` function with cofactor expansion and LU decomposition
+- **script_066.rb**: `prime_factors` function with optimized factorization
+- **script_067.rb**: `lcm` function with multiple LCM calculation methods
+- **script_068.rb**: `power_mod` function with modular exponentiation
+- **script_069.rb**: `fibonacci_memo` function with memoized Fibonacci calculation
+- **script_070.rb**: `factorial_memo` function with memoized factorial calculation
